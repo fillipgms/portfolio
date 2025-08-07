@@ -47,11 +47,3 @@ body {
 .bg-pc {
     background-image: url("/pc-bg.gif");
 }
-
-.pc-icon {
-    @apply flex flex-col items-center cursor-pointer h-fit;
-}
-
-.pc-icon > img {
-    @apply size-12;
-}

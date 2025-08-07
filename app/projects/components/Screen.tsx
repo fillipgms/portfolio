@@ -4,6 +4,7 @@ import DesktopItem from "./DesktopItem";
 import OndaPay from "../windows/OndaPay";
 import Window from "./Window";
 import TrashBin from "../windows/TrashBin";
+import BgFestas from "../windows/BgFestas";
 
 type DesktopApp = {
     label: string;
@@ -35,6 +36,12 @@ const items: DesktopApp[] = [
         component: <OndaPay />,
         color: "green",
     },
+    {
+        label: "BgFestas",
+        image: "/icons/bgfestas.png",
+        component: <BgFestas />,
+        color: "orange",
+    },
 ];
 
 const Screen = () => {
@@ -64,18 +71,17 @@ const Screen = () => {
     };
 
     return (
-        <div
-            className="p-5 h-full w-full bg-pc bg-cover bg-no-repeat flex
-                flex-col items-start gap-5"
-        >
-            {items.map((item) => (
-                <DesktopItem
-                    key={item.label}
-                    label={item.label}
-                    image={item.image}
-                    onClick={() => openApp(item.label)}
-                />
-            ))}
+        <div className="p-5 h-full w-full bg-pc bg-cover bg-no-repeat">
+            <div className="flex flex-col items-center gap-5 w-fit">
+                {items.map((item) => (
+                    <DesktopItem
+                        key={item.label}
+                        label={item.label}
+                        image={item.image}
+                        onClick={() => openApp(item.label)}
+                    />
+                ))}
+            </div>
 
             {openWindows.map((win) => {
                 const item = items.find((it) => it.label === win.id);

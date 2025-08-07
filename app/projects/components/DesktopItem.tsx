@@ -22,13 +22,16 @@ const DesktopItem = ({
     };
 
     return (
-        <div className="pc-icon" onClick={handleClick}>
+        <div
+            className="flex flex-col items-center cursor-pointer h-fit"
+            onClick={handleClick}
+        >
             <Image
                 src={image}
                 alt="trash bin"
                 width={281}
                 height={310}
-                className=""
+                className="size-12"
             />
             <p>{label}</p>
         </div>
