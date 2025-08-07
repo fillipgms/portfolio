@@ -47,3 +47,32 @@ body {
 .bg-pc {
     background-image: url("/pc-bg.gif");
 }
+
+.vintage-scrollbar::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+}
+
+.vintage-scrollbar::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border: 1px solid #808080;
+    box-shadow:
+        inset -1px -1px 0 #ffffff,
+        inset 1px 1px 0 #404040;
+}
+
+.vintage-scrollbar::-webkit-scrollbar-thumb {
+    background: #c0c0c2;
+    border: 1px solid #000000;
+    box-shadow:
+        inset -1px -1px 0 #ffffff,
+        inset 1px 1px 0 #808080;
+}
+
+.vintage-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+.vintage-scrollbar::-webkit-scrollbar-corner {
+    background: #c0c0c0;
+}

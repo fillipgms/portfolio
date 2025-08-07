@@ -17,7 +17,7 @@ export default function ProjectsPage() {
 
             <Screen />
 
-            <section className="w-full self-end bg-[#FF746C] p-4">
+            <section className="w-full self-end bg-[#ffaf75] p-4">
                 <Link
                     className="text-black p-2 border rounded-sm text-xl"
                     href="/"

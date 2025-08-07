@@ -70,7 +70,7 @@ const Menu = () => {
             if (document.hidden) {
                 audioRef.current.volume = 0;
             } else {
-                audioRef.current.volume = 100;
+                audioRef.current.volume = 1;
             }
         };
 

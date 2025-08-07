@@ -3,14 +3,14 @@ import React, { useEffect, useState } from "react";
 import { Rnd } from "react-rnd";
 
 const colors = {
-    red: "#e34234",
+    red: "#f45d3d",
     orange: "#ff8c00",
-    yellow: "#fada5e",
+    yellow: "#feb900",
     green: "#3cb371",
     blue: "#4169e1",
     purple: "#9370db",
-    pink: "#ff69b4",
-    gray: "#b0b0b0",
+    pink: "#ff8aa5",
+    gray: "#a8bcd6",
     white: "#f8f8f8",
     black: "#1a1a1a",
 } as const;
@@ -96,6 +96,7 @@ const Window = ({
                     <span className="text-black font-semibold">{label}</span>
                     <button
                         onClick={onClose}
+                        onTouchStart={onClose}
                         className="bg-red-500 text-white font-bold px-2 rounded
                             hover:bg-red-600 cursor-pointer"
                     >
@@ -103,8 +104,8 @@ const Window = ({
                     </button>
                 </div>
                 <div
-                    className="overflow-auto bg-[#e7e3d7] text-black p-4
-                        max-h-[80vh]"
+                    className="overflow-auto vintage-scrollbar bg-[#e7e3d7]
+                        text-black p-4 max-h-[80vh]"
                 >
                     {content}
                 </div>

@@ -1,15 +1,17 @@
 "use client";
 import React, { useState } from "react";
 import DesktopItem from "./DesktopItem";
-import OndaPay from "../windows/OndaPay";
 import Window from "./Window";
 import TrashBin from "../windows/TrashBin";
-import BgFestas from "../windows/BgFestas";
+
+import { projects } from "@/data/projects";
+import Project from "./Project";
 
 type DesktopApp = {
     label: string;
     image: string;
-    component: React.ReactNode;
+    component?: React.ReactNode;
+    type: "app" | "project";
     color:
         | "red"
         | "orange"
@@ -27,20 +29,27 @@ const items: DesktopApp[] = [
     {
         label: "Trash Bin",
         image: "/icons/trashbin.webp",
+        type: "app",
         component: <TrashBin />,
         color: "gray",
     },
     {
         label: "OndaPay",
         image: "/icons/ondapay.png",
-        component: <OndaPay />,
+        type: "project",
         color: "green",
     },
     {
         label: "BgFestas",
         image: "/icons/bgfestas.png",
-        component: <BgFestas />,
+        type: "project",
         color: "orange",
+    },
+    {
+        label: "Stargazer",
+        image: "/icons/stargazer.png",
+        type: "project",
+        color: "pink",
     },
 ];
 
@@ -87,11 +96,21 @@ const Screen = () => {
                 const item = items.find((it) => it.label === win.id);
                 if (!item) return null;
 
+                let content = item.component;
+                if (item.type === "project") {
+                    const projectData = projects.find(
+                        (p) => p.title === item.label,
+                    );
+                    if (projectData) {
+                        content = <Project project={projectData} />;
+                    }
+                }
+
                 return (
                     <Window
                         key={win.id}
                         color={item.color}
-                        content={item.component}
+                        content={content}
                         label={item.label}
                         onClose={() => closeApp(win.id)}
                         onClick={() => bringToFront(win.id)}
